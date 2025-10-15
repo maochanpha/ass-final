@@ -6,7 +6,7 @@ export default function ModernFooter() {
   return (
     <motion.footer initial={{ opacity: 0, y: 40 }}whileInView={{ opacity: 1, y: 0 }}transition={{ duration: 0.8, ease: "easeOut" }}viewport={{ once: true }}>
 
-      <Footer container={false} className="bg-gradient-to-b from-gray-900 to-black text-gray-300">
+      <Footer container={false} className="bg-gradient-to-b from-gray-900 to-black text-gray-300 ">
       
         <div className="mx-auto w-full max-w-7xl px-6 py-12">
           {/* Top Grid Section */}

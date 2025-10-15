@@ -5,7 +5,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center text-center bg-gradient-to from-gray-700 to-gray-900 text-white">
       {/* Hero Banner */}
       <div className="relative w-full rounded-lg overflow-hidden">
-        <img src="/car/banner.png" alt="Car Banner" className="w-full h-[500px] object-cover opacity-90" />
+        <img src="/car/banner.png" alt="Car Banner" className="w-full h-[508px] object-cover opacity-90" />
         {/* Overlay text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
           <h1 className="text-5xl font-bold mb-4">Drive Your Dream Car</h1>

@@ -6,21 +6,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-b from-gray-900 to-black text-gray-300 px-8 py-6">
+    <nav className="bg-gradient-to-b from-gray-900 to-black text-gray-300 px-9 py-6">
       <div className="flex justify-between items-center">
           
         <div className="text-3xl font-bold">
           <Link to="/">Apex Auto</Link> 
         </div>
   
-            {/* Search bar */}
-         <div className="flex justify-center mb-3 w-96 relative">
-
-          {/* Search Icon */}
-          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-
-          <input type="search" placeholder="Search Cars..." className="w-full px-4 pl-10 h-[30px] rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-600"/>
-        </div>
+            
         <ul className="hidden md:flex space-x-8 text-lg">
           <li><Link to="/" className="hover:text-gray-500 text-2xl p-5 m-2">Home</Link></li>
           <li><Link to="/products" className="hover:text-gray-500 text-2xl p-5 m-2">Products</Link></li>
