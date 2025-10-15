@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Report from "./pages/Report";
 import About from "./pages/About";
 import Footer from './components/Footer'
+import BuyNow from "./pages/BuyNow";
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/report" element={<Report />} />
           <Route path='/about' element={<About />} />
+
+          <Route path="/" element={<Products />} />
+          <Route path="/buy/:carName" element={<BuyNow />} />
         </Routes>
       </div>
       <div>

@@ -25,22 +25,20 @@ export default function Home() {
           className="absolute inset-0 flex flex-col items-center justify-center px-4"
         >
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
-            Drive Your <span className="text-blue-500">Dream Car</span>
+            Drive Your <span className="text-blue-400">Dream Car</span>
           </h1>
           <p className="text-lg md:text-xl max-w-2xl mb-8 text-gray-200">
-            Discover top-performance cars that fit your lifestyle and budget — only at{" "}
-            <span className="font-semibold text-white">Apex Auto</span>.
+            Discover top-performance cars that fit your lifestyle and budget —
+            only at <span className="font-semibold text-white">Apex Auto</span>.
           </p>
           <Link
             to="/products"
-            className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold transition transform hover:scale-105"
+            className="bg-black hover:bg-white text-white hover:text-black px-8 py-3 rounded-xl font-semibold transition transform hover:scale-105"
           >
             Shop Now
           </Link>
         </motion.div>
       </div>
-
-      
     </div>
   );
 }

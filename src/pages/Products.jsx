@@ -1,22 +1,107 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router";
 
 export default function Products() {
   const [search, setSearch] = useState("");
   const cars = [
-    { name: "Toyota Corolla", img: "car/corolla.png", year: 2021, fuel: "Petrol", km: "25,000 km", price: "$15,000" },
-    { name: "McLaren 720S", img: "car/mcl720s.png", year: 2022, fuel: "Petrol", km: "5,000 km", price: "$280,000" },
-    { name: "Nissan GTR R35", img: "car/GTR.png", year: 2021, fuel: "Petrol", km: "10,000 km", price: "$120,000" },
-    { name: "Aston Martin DB11", img: "car/amt.png", year: 2020, fuel: "Petrol", km: "8,000 km", price: "$200,000" },
-    { name: "Audi R8", img: "car/audir8.png", year: 2021, fuel: "Petrol", km: "12,000 km", price: "$170,000" },
-    { name: "BMW M4", img: "car/bmwm4-25.png", year: 2022, fuel: "Petrol", km: "9,000 km", price: "$130,000" },
-    { name: "Ferrari 812", img: "car/Far23.png", year: 2022, fuel: "Petrol", km: "3,500 km", price: "$350,000" },
-    { name: "Toyota GR Supra", img: "car/grsupra.png", year: 2023, fuel: "Petrol", km: "2,000 km", price: "$60,000" },
-    { name: "Lamborghini Huracán", img: "car/Lambo.png", year: 2021, fuel: "Petrol", km: "4,000 km", price: "$280,000" },
-    { name: "Ford Mustang GT", img: "car/mustang25.png", year: 2020, fuel: "Petrol", km: "15,000 km", price: "$55,000" },
-    { name: "Tesla Model S", img: "car/tesla.png", year: 2023, fuel: "Electric", km: "1,000 km", price: "$90,000" },
-    { name: "Porsche 911 GT3", img: "car/porches911gt3.png", year: 2022, fuel: "Petrol", km: "6,000 km", price: "$220,000" },
+    {
+      name: "Toyota Corolla",
+      img: "car/corolla.png",
+      year: 2021,
+      fuel: "Petrol",
+      km: "25,000 km",
+      price: "$15,000",
+    },
+    {
+      name: "McLaren 720S",
+      img: "car/mcl720s.png",
+      year: 2022,
+      fuel: "Petrol",
+      km: "5,000 km",
+      price: "$280,000",
+    },
+    {
+      name: "Nissan GTR R35",
+      img: "car/GTR.png",
+      year: 2021,
+      fuel: "Petrol",
+      km: "10,000 km",
+      price: "$120,000",
+    },
+    {
+      name: "Aston Martin DB11",
+      img: "car/amt.png",
+      year: 2020,
+      fuel: "Petrol",
+      km: "8,000 km",
+      price: "$200,000",
+    },
+    {
+      name: "Audi R8",
+      img: "car/audir8.png",
+      year: 2021,
+      fuel: "Petrol",
+      km: "12,000 km",
+      price: "$170,000",
+    },
+    {
+      name: "BMW M4",
+      img: "car/bmwm4-25.png",
+      year: 2022,
+      fuel: "Petrol",
+      km: "9,000 km",
+      price: "$130,000",
+    },
+    {
+      name: "Ferrari 812",
+      img: "car/Far23.png",
+      year: 2022,
+      fuel: "Petrol",
+      km: "3,500 km",
+      price: "$350,000",
+    },
+    {
+      name: "Toyota GR Supra",
+      img: "car/grsupra.png",
+      year: 2023,
+      fuel: "Petrol",
+      km: "2,000 km",
+      price: "$60,000",
+    },
+    {
+      name: "Lamborghini Huracán",
+      img: "car/Lambo.png",
+      year: 2021,
+      fuel: "Petrol",
+      km: "4,000 km",
+      price: "$280,000",
+    },
+    {
+      name: "Ford Mustang GT",
+      img: "car/mustang25.png",
+      year: 2020,
+      fuel: "Petrol",
+      km: "15,000 km",
+      price: "$55,000",
+    },
+    {
+      name: "Tesla Model S",
+      img: "car/tesla.png",
+      year: 2023,
+      fuel: "Electric",
+      km: "1,000 km",
+      price: "$90,000",
+    },
+    {
+      name: "Porsche 911 GT3",
+      img: "car/porches911gt3.png",
+      year: 2022,
+      fuel: "Petrol",
+      km: "6,000 km",
+      price: "$220,000",
+    },
   ];
 
   const filteredCars = cars.filter((car) =>
@@ -61,9 +146,15 @@ export default function Products() {
               transition={{ type: "spring", stiffness: 200 }}
               className="w-full max-w-xs backdrop-blur-lg bg-white/10 border border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300"
             >
-              <img src={car.img} alt={car.name} className="w-full h-56 object-cover" />
+              <img
+                src={car.img}
+                alt={car.name}
+                className="w-full h-56 object-cover"
+              />
               <div className="p-5">
-                <h2 className="text-lg font-semibold text-white mb-2">{car.name}</h2>
+                <h2 className="text-lg font-semibold text-white mb-2">
+                  {car.name}
+                </h2>
                 <p className="text-sm text-gray-400 mb-4">
                   {car.year} • {car.fuel} • {car.km}
                 </p>
@@ -71,12 +162,14 @@ export default function Products() {
                   <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">
                     {car.price}
                   </span>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow"
-                  >
-                    Buy Now
-                  </motion.button>
+                  <Link to={`/buy/${encodeURIComponent(car.name)}`}>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow"
+                    >
+                      Buy Now
+                    </motion.button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
