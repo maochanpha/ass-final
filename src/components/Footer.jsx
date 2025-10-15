@@ -1,96 +1,87 @@
-import { Footer, FooterCopyright, FooterIcon, FooterLink, FooterLinkGroup, FooterTitle } from "flowbite-react";
-import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import {
+  Footer,
+  FooterCopyright,
+  FooterIcon,
+  FooterLink,
+  FooterLinkGroup,
+  FooterTitle,
+} from "flowbite-react";
+import {
+  BsDribbble,
+  BsFacebook,
+  BsGithub,
+  BsInstagram,
+  BsTwitter,
+} from "react-icons/bs";
 import { motion } from "framer-motion";
 
 export default function ModernFooter() {
-  return (
-    <motion.footer initial={{ opacity: 0, y: 40 }}whileInView={{ opacity: 1, y: 0 }}transition={{ duration: 0.8, ease: "easeOut" }}viewport={{ once: true }}>
+  const sections = [
+    { title: "Company", items: ["About Us", "Careers", "Press", "Blog"] },
+    {
+      title: "Support",
+      items: ["Help Center", "Contact Us", "FAQs", "Live Chat"],
+    },
+    {
+      title: "Legal",
+      items: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+    },
+    { title: "Modern Cars", items: ["BMW", "Ferrari", "Tesla", "Porsche"] },
+    { title: "Download", items: ["iOS", "Android", "Windows", "MacOS"] },
+  ];
 
-      <Footer container={false} className="bg-gradient-to-b from-gray-900 to-black text-gray-300 ">
-      
+  const socialIcons = [
+    BsFacebook,
+    BsInstagram,
+    BsTwitter,
+    BsGithub,
+    BsDribbble,
+  ];
+
+  return (
+    <motion.footer
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
+      <Footer
+        container={false}
+        className="bg-gradient-to-b from-gray-900 to-black text-gray-300"
+      >
         <div className="mx-auto w-full max-w-7xl px-6 py-12">
           {/* Top Grid Section */}
-          <motion.div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-5" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}viewport={{ once: true }}>
-            
-            {/* Company */}
-            <div>
-              <FooterTitle title="Company" className="text-white text-lg font-semibold mb-4" />
-              <FooterLinkGroup col>
-                {["About Us", "Careers", "Press", "Blog"].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                  >
-                    <FooterLink href="#" className="hover:text-white transition-colors">{item}</FooterLink>
-                  </motion.div>
-                ))}
-              </FooterLinkGroup>
-            </div>
-
-            {/* Support */}
-            <div>
-              <FooterTitle title="Support" className="text-white text-lg font-semibold mb-4" />
-              <FooterLinkGroup col>
-                {["Help Center", "Contact Us", "FAQs", "Live Chat"].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                  >
-                    <FooterLink href="#" className="hover:text-white transition-colors">{item}</FooterLink>
-                  </motion.div>
-                ))}
-              </FooterLinkGroup>
-            </div>
-
-            {/* Legal */}
-            <div>
-              <FooterTitle title="Legal" className="text-white text-lg font-semibold mb-4" />
-              <FooterLinkGroup col>
-                {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                  >
-                    <FooterLink href="#" className="hover:text-white transition-colors">{item}</FooterLink>
-                  </motion.div>
-                ))}
-              </FooterLinkGroup>
-            </div>
-
-            {/* Cars */}
-            <div>
-              <FooterTitle title="Modern Cars" className="text-white text-lg font-semibold mb-4" />
-              <FooterLinkGroup col>
-                {["BMW", "Ferrari", "Tesla", "Porsche"].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                  >
-                    <FooterLink href="#" className="hover:text-white transition-colors">{item}</FooterLink>
-                  </motion.div>
-                ))}
-              </FooterLinkGroup>
-            </div>
-
-            {/* Downloads */}
-            <div>
-              <FooterTitle title="Download" className="text-white text-lg font-semibold mb-4" />
-              <FooterLinkGroup col>
-                {["iOS", "Android", "Windows", "MacOS"].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                  >
-                    <FooterLink href="#" className="hover:text-white transition-colors">{item}</FooterLink>
-                  </motion.div>
-                ))}
-              </FooterLinkGroup>
-            </div>
+          <motion.div
+            className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            {sections.map((section, idx) => (
+              <div key={idx}>
+                <FooterTitle
+                  title={section.title}
+                  className="text-white text-lg font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400"
+                />
+                <FooterLinkGroup col>
+                  {section.items.map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.05, x: 5 }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                    >
+                      <FooterLink
+                        href="#"
+                        className="hover:text-white transition-colors"
+                      >
+                        {item}
+                      </FooterLink>
+                    </motion.div>
+                  ))}
+                </FooterLinkGroup>
+              </div>
+            ))}
           </motion.div>
 
           {/* Divider */}
@@ -100,7 +91,7 @@ export default function ModernFooter() {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-          ></motion.div>
+          />
 
           {/* Bottom Bar */}
           <motion.div
@@ -116,7 +107,7 @@ export default function ModernFooter() {
 
             {/* Social Icons */}
             <div className="flex space-x-6">
-              {[BsFacebook, BsInstagram, BsTwitter, BsGithub, BsDribbble].map((Icon, i) => (
+              {socialIcons.map((Icon, i) => (
                 <motion.div
                   key={i}
                   whileHover={{ scale: 1.3, rotate: 10 }}
