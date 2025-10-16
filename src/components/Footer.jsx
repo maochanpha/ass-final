@@ -49,7 +49,7 @@ export default function ModernFooter() {
         container={false}
         className="bg-gradient-to-b from-gray-900 to-black text-gray-300"
       >
-        <div className="mx-auto w-full max-w-7xl px-6 py-12">
+        <div className="mx-auto w-full max-w-8xl px-6 py-12">
           {/* Top Grid Section */}
           <motion.div
             className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-5"

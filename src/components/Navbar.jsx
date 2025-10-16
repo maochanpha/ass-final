@@ -27,17 +27,17 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   return (
-    <motion.nav initial={{ y: 0 }} animate={{ y: showNavbar ? 0 : -100 }}transition={{ duration: 0.4, ease: "easeInOut" }} className="fixed w-full top-0 z-50 bg-gradient-to-r from-gray-900 to-black text-white px-6 py-4 shadow-lg transition-all duration-500"  >
-      <div className="flex justify-between items-center">
+    <motion.nav initial={{ y: 0 }} animate={{ y: showNavbar ? 0 : -100 }}transition={{ duration: 0.4, ease: "easeInOut" }} className="fixed w-full top-0 z-50 bg-gradient-to-r from-gray-900 to-black text-white px-9 py-5 shadow-lg transition-all duration-500 "  >
+      <div className="flex justify-between items-center ">
         <h1 className="text-2xl font-bold tracking-wide">Apex<span className="text-blue-500">Auto</span></h1>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300">
-          <li><Link to="/" className="hover:text-white transition">Home</Link></li>
-          <li><Link to="/products" className="hover:text-white transition">Products</Link></li>
-          <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
-          <li><Link to="/about" className="hover:text-white transition">About</Link></li>
-          <li><Link to="/report" className="hover:text-white transition">Report</Link></li>
+        <ul className="hidden md:flex space-x-10  text-gray-300">
+          <li><Link to="/" className="hover:text-white transition text-2xl ">Home</Link></li>
+          <li><Link to="/products" className="hover:text-white transition text-2xl ">Products</Link></li>
+          <li><Link to="/contact" className="hover:text-white transition text-2xl ">Contact</Link></li>
+          <li><Link to="/about" className="hover:text-white transition text-2xl ">About</Link></li>
+          <li><Link to="/report" className="hover:text-white transition text-2xl ">Report</Link></li>
         </ul>
 
         {/* Mobile Menu Button */}

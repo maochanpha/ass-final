@@ -109,7 +109,7 @@ export default function Products() {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-black py-16 px-6 min-h-screen">
+    <div className="bg-gradient-to-b from-gray-900 to-black py-16 px-6 min-h-screen ">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export default function Products() {
       </div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-stretch justify-items-center"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-stretch justify-items-center max-w-[1500px] m-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
