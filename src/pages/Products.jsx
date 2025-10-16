@@ -114,7 +114,7 @@ export default function Products() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl text-center mb-10 font-extrabold text-white tracking-wide"
+        className="text-4xl text-center m-10 mb-10 font-extrabold text-white tracking-wide"
       >
         Cars for Sale
       </motion.h1>

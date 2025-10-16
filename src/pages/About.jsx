@@ -1,12 +1,12 @@
 export default function About() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16 text-gray-800">
+    <div className="max-w-5xl mx-auto px-6 py-16 text-gray-200">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+        <h1 className="text-4xl font-extrabold text-gray-200 mb-4 tracking-tight">
           Our Company
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-200 max-w-2xl mx-auto">
           Driving innovation, performance, and the future of mobility.
         </p>
       </div>
@@ -23,11 +23,11 @@ export default function About() {
 
       {/* Heritage Section */}
       <section className="space-y-6">
-        <h2 className="text-3xl font-semibold text-gray-900 border-l-4 border-blue-500 pl-4">
+        <h2 className="text-3xl font-semibold text-white border-l-4 border-blue-500 pl-4">
           Our Heritage
         </h2>
 
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-gray-200 leading-relaxed">
           Today’s car industry is powered by innovation from brands like{" "}
           <strong>BMW</strong>, <strong>Ford</strong>, and{" "}
           <strong>Tesla</strong>. BMW stands out for its luxury design and
@@ -46,7 +46,7 @@ export default function About() {
           <strong>BMW i8</strong>.
         </blockquote>
 
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-gray-200 leading-relaxed">
           Ten years later, a young engineer named <strong>Alex Turner</strong>{" "}
           walked through the doors of BMW’s headquarters and became captivated
           by the brand’s passion for innovation and performance from the very

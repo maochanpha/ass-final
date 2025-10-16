@@ -1,8 +1,39 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router";
 
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const banners = [
+    {
+      img: "/car/banner.png",
+      title: "Drive Your Dream Car",
+      subtitle: "Discover top-performance cars that fit your lifestyle and budget.",
+      button: "Shop Now",
+    },
+    {
+      img: "/car/banner2.png",
+      title: "Luxury That Moves You",
+      subtitle: "Find premium cars from the world’s top brands only at Apex Auto.",
+      button: "Explore Cars",
+    },
+    {
+      img: "/car/banner3.png",
+      title: "Speed Meets Style",
+      subtitle: "Unleash performance and elegance on every road.",
+      button: "View Models",
+    },
+  ];
+
+  // Auto slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % banners.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [banners.length]);
+
   const availableCars = [
     { name: "Lamborghini Huracán", img: "/car/Lambo.png", price: "$250,000" },
     { name: "Ferrari 488 GTB", img: "/car/Far23.png", price: "$280,000" },
@@ -18,40 +49,64 @@ export default function Home() {
 
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
-      {/* ================= HERO SECTION ================= */}
-      <div className="flex flex-col items-center justify-center text-center mt-20 overflow-hidden">
-        <div className="relative w-full h-[520px] rounded-lg overflow-hidden shadow-lg">
-          <img
-            src="/car/banner.png"
-            alt="Car Banner"
-            className="w-full h-full object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+      {/* ================= SLIDE BANNER ================= */}
+      <div className="relative w-full h-[520px] overflow-hidden mt-20 rounded-lg">
+        <AnimatePresence>
+          <motion.img
+            key={banners[currentIndex].img}
+            src={banners[currentIndex].img}
+            alt={banners[currentIndex].title}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="absolute inset-0 flex flex-col items-center justify-center px-4"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent"></div>
+
+        {/* Banner Text */}
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+        >
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+            {banners[currentIndex].title.split(" ").slice(0, -1).join(" ")}{" "}
+            <span className="text-blue-400">
+              {banners[currentIndex].title.split(" ").slice(-1)}
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl max-w-2xl mb-8 text-gray-200">
+            {banners[currentIndex].subtitle}
+          </p>
+          <Link
+            to="/products"
+            className="bg-black hover:bg-white text-white hover:text-black px-8 py-3 rounded-xl font-semibold transition transform hover:scale-105"
           >
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
-              Drive Your <span className="text-blue-400">Dream Car</span>
-            </h1>
-            <p className="text-lg md:text-xl max-w-2xl mb-8 text-gray-200">
-              Discover top-performance cars that fit your lifestyle and budget — only at{" "}
-              <span className="font-semibold text-white">Apex Auto</span>.
-            </p>
-            <Link
-              to="/products"
-              className="bg-black hover:bg-white text-white hover:text-black px-8 py-3 rounded-xl font-semibold transition transform hover:scale-105"
-            >
-              Shop Now
-            </Link>
-          </motion.div>
+            {banners[currentIndex].button}
+          </Link>
+        </motion.div>
+
+        {/* Dots navigation */}
+        <div className="absolute bottom-6 flex justify-center w-full space-x-3">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition ${
+                index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+              }`}
+            ></button>
+          ))}
         </div>
       </div>
 
-      {/* ================= AVAILABLE CARS SECTION ================= */}
+      {/* ================= AVAILABLE CARS ================= */}
       <section className="py-16 px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= COMING SOON SECTION ================= */}
+      {/* ================= COMING SOON ================= */}
       <section className="py-16 px-6 bg-gradient-to-b from-black to-gray-900">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

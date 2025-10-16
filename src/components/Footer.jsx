@@ -47,7 +47,7 @@ export default function ModernFooter() {
     >
       <Footer
         container={false}
-        className="bg-gradient-to-b from-gray-900 to-black text-gray-300"
+        className="bg-gradient-to-b from-gray-900 to-black text-gray-300 rounded-none"
       >
         <div className="mx-auto w-full max-w-8xl px-6 py-12">
           {/* Top Grid Section */}
