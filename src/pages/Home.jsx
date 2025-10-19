@@ -26,7 +26,6 @@ export default function Home() {
     },
   ];
 
-  // Auto slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
@@ -47,8 +46,15 @@ export default function Home() {
     { name: "Bugatti Tourbillon", img: "/car/bugatti.png", release: "2025" },
   ];
 
+  const testimonials = [
+    { name: "John D.", text: "Amazing service! My Ferrari was delivered in 3 days!", img: "/car/user1.png" },
+    { name: "Sophia L.", text: "Smooth purchase and great support team!", img: "/car/user2.png" },
+    { name: "Alex P.", text: "Got my dream Porsche—thanks Apex Auto!", img: "/car/user3.png" },
+  ];
+
   return (
-    <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
+    <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white relative">
+
       {/* ================= SLIDE BANNER ================= */}
       <div className="relative w-full h-[520px] overflow-hidden mt-20 rounded-lg">
         <AnimatePresence>
@@ -63,11 +69,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         </AnimatePresence>
-
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent"></div>
-
-        {/* Banner Text */}
         <motion.div
           key={currentIndex}
           initial={{ opacity: 0, y: 20 }}
@@ -91,8 +93,6 @@ export default function Home() {
             {banners[currentIndex].button}
           </Link>
         </motion.div>
-
-        {/* Dots navigation */}
         <div className="absolute bottom-6 flex justify-center w-full space-x-3">
           {banners.map((_, index) => (
             <button
@@ -124,13 +124,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-105 hover:shadow-blue-500/30 transition transform"
+              className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-105 hover:shadow-blue-500/30 transition transform relative"
             >
-              <img
-                src={car.img}
-                alt={car.name}
-                className="w-full h-52 object-cover"
-              />
+              <img src={car.img} alt={car.name} className="w-full h-52 object-cover" />
               <div className="p-5 text-center">
                 <h3 className="text-xl font-semibold mb-2">{car.name}</h3>
                 <p className="text-gray-400 mb-3">{car.price}</p>
@@ -146,6 +142,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ================= FEATURED SUPERCAR ================= */}
+      <section className="py-16 px-6 bg-gray-900 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold mb-10 text-red-400"
+        >
+          Featured Supercar of the Month
+        </motion.h2>
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+          <img src="/car/feature.png" alt="Featured Car" className="w-full md:w-1/2 object-cover" />
+          <div className="p-8">
+            <h3 className="text-2xl font-bold mb-2 text-white">Ferrari SF90 Stradale</h3>
+            <p className="text-gray-300 mb-4">
+              Experience hybrid power with 986 horsepower and breathtaking design.
+            </p>
+            <p className="text-yellow-400 font-semibold mb-3">0–100 km/h in 2.5s</p>
+            <Link
+              to="/products"
+              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition"
+            >
+              View Details
+            </Link>
+          </div>
+        </div>
+      </section>
+
+     
+
+      {/* ================= WHY CHOOSE US ================= */}
+      <section className="py-16 px-6 bg-gray-900 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold text-blue-400 mb-10"
+        >
+          Why Choose Apex Auto?
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-6 bg-gray-800 rounded-xl shadow-lg">
+            <h3 className="text-xl font-semibold mb-3">✅ Certified Cars</h3>
+            <p className="text-gray-300">Every car passes a 200-point inspection before sale.</p>
+          </div>
+          <div className="p-6 bg-gray-800 rounded-xl shadow-lg">
+            <h3 className="text-xl font-semibold mb-3">💰 Flexible Financing</h3>
+            <p className="text-gray-300">Get your dream car with easy monthly payment plans.</p>
+          </div>
+          <div className="p-6 bg-gray-800 rounded-xl shadow-lg">
+            <h3 className="text-xl font-semibold mb-3">⚡ Fast Delivery</h3>
+            <p className="text-gray-300">We deliver your car anywhere in record time.</p>
+          </div>
+        </div>
+      </section>
+
       {/* ================= COMING SOON ================= */}
       <section className="py-16 px-6 bg-gradient-to-b from-black to-gray-900">
         <motion.h2
@@ -156,7 +208,6 @@ export default function Home() {
         >
           Coming Soon
         </motion.h2>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {comingSoonCars.map((car, index) => (
             <motion.div
@@ -179,6 +230,86 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ================= CUSTOMER TESTIMONIALS ================= */}
+      <section className="py-16 px-6 bg-gray-800 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold mb-10 text-green-400"
+        >
+          Happy Customers
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((review, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="bg-gray-700 p-6 rounded-2xl shadow-lg text-center"
+            >
+              <img src={review.img} className="w-20 h-20 rounded-full mx-auto mb-4 object-cover" />
+              <p className="italic text-gray-300 mb-3">“{review.text}”</p>
+              <h4 className="font-semibold text-white">{review.name}</h4>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= STATS / AWARDS ================= */}
+      <section className="py-16 px-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold mb-10 text-blue-400"
+        >
+          Our Achievements
+        </motion.h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div><p className="text-4xl font-bold text-white">10K+</p><p className="text-gray-400">Cars Sold</p></div>
+          <div><p className="text-4xl font-bold text-white">500+</p><p className="text-gray-400">Luxury Models</p></div>
+          <div><p className="text-4xl font-bold text-white">20+</p><p className="text-gray-400">Countries</p></div>
+          <div><p className="text-4xl font-bold text-white">4.9⭐</p><p className="text-gray-400">Customer Rating</p></div>
+        </div>
+      </section>
+
+     
+
+      {/* ================= NEWSLETTER SIGNUP ================= */}
+      <section className="py-16 px-6 bg-gray-800 text-center">
+        <h2 className="text-3xl font-bold text-blue-400 mb-4">Stay Updated!</h2>
+        <p className="text-gray-300 mb-6">Get the latest cars, offers, and news straight to your inbox.</p>
+        <div className="flex justify-center flex-col md:flex-row gap-2">
+          <input type="email" placeholder="Your email" className=" text-black px-4 py-2 rounded-l-xl focus:outline-none w-full md:w-64"/>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-r-xl font-semibold transition">Subscribe</button>
+        </div>
+      </section>
+
+      {/* ================= FLOATING CHAT BUTTON ================= */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <a
+          href="https://wa.me/1234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition transform hover:scale-110"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.81L3 20l1.81-4a9.86 9.86 0 01-.81-4c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   );
 }

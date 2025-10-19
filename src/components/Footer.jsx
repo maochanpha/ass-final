@@ -49,7 +49,7 @@ export default function ModernFooter() {
         container={false}
         className="bg-gradient-to-b from-gray-900 to-black text-gray-300 rounded-none"
       >
-        <div className="mx-auto w-full max-w-8xl px-6 py-12">
+        <div className="mx-auto w-full max-w-8xl px-6 py-10 md:px-12 lg:px-16">
           {/* Top Grid Section */}
           <motion.div
             className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-5"
@@ -62,7 +62,7 @@ export default function ModernFooter() {
               <div key={idx}>
                 <FooterTitle
                   title={section.title}
-                  className="text-white text-lg font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400"
+                  className="text-white text-lg font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400"
                 />
                 <FooterLinkGroup col>
                   {section.items.map((item, i) => (
