@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router";
 
 export default function BuyNow() {
   const { carName } = useParams();
   const navigate = useNavigate();
 
-  // Same car data as in Products.jsx
   const cars = [
     {
       name: "Toyota Corolla",
@@ -13,7 +12,13 @@ export default function BuyNow() {
       year: 2021,
       fuel: "Petrol",
       km: "25,000 km",
-      price: "$15,000",
+      price: 15000,
+      description: {
+        engine: "1.8L 4-Cylinder",
+        horsepower: "139 hp",
+        topSpeed: "180 km/h",
+        features: ["Bluetooth", "Backup Camera", "Lane Assist"],
+      },
     },
     {
       name: "McLaren 720S",
@@ -21,7 +26,13 @@ export default function BuyNow() {
       year: 2022,
       fuel: "Petrol",
       km: "5,000 km",
-      price: "$280,000",
+      price: 280000,
+      description: {
+        engine: "4.0L V8 Twin-Turbo",
+        horsepower: "710 hp",
+        topSpeed: "341 km/h",
+        features: ["Carbon Fiber Body", "Active Aerodynamics", "Track Mode"],
+      },
     },
     {
       name: "Nissan GTR R35",
@@ -29,7 +40,13 @@ export default function BuyNow() {
       year: 2021,
       fuel: "Petrol",
       km: "10,000 km",
-      price: "$120,000",
+      price: 120000,
+      description: {
+        engine: "3.8L V6 Twin-Turbo",
+        horsepower: "565 hp",
+        topSpeed: "315 km/h",
+        features: ["All-Wheel Drive", "Launch Control", "Brembo Brakes"],
+      },
     },
     {
       name: "Aston Martin DB11",
@@ -37,7 +54,13 @@ export default function BuyNow() {
       year: 2020,
       fuel: "Petrol",
       km: "8,000 km",
-      price: "$200,000",
+      price: 200000,
+      description: {
+        engine: "5.2L V12 Twin-Turbo",
+        horsepower: "600 hp",
+        topSpeed: "322 km/h",
+        features: ["Luxury Interior", "Adaptive Cruise", "Touchscreen Infotainment"],
+      },
     },
     {
       name: "Audi R8",
@@ -45,7 +68,13 @@ export default function BuyNow() {
       year: 2021,
       fuel: "Petrol",
       km: "12,000 km",
-      price: "$170,000",
+      price: 170000,
+      description: {
+        engine: "5.2L V10",
+        horsepower: "562 hp",
+        topSpeed: "330 km/h",
+        features: ["Quattro AWD", "Virtual Cockpit", "Carbon Fiber"],
+      },
     },
     {
       name: "BMW M4",
@@ -53,7 +82,13 @@ export default function BuyNow() {
       year: 2022,
       fuel: "Petrol",
       km: "9,000 km",
-      price: "$130,000",
+      price: 130000,
+      description: {
+        engine: "3.0L Twin-Turbo I6",
+        horsepower: "503 hp",
+        topSpeed: "290 km/h",
+        features: ["Adaptive Suspension", "M Carbon Roof", "Track Mode"],
+      },
     },
     {
       name: "Ferrari 812",
@@ -61,7 +96,13 @@ export default function BuyNow() {
       year: 2022,
       fuel: "Petrol",
       km: "3,500 km",
-      price: "$350,000",
+      price: 350000,
+      description: {
+        engine: "6.5L V12",
+        horsepower: "789 hp",
+        topSpeed: "340 km/h",
+        features: ["Aerodynamic Body", "F1 Inspired Tech", "Luxury Interior"],
+      },
     },
     {
       name: "Toyota GR Supra",
@@ -69,7 +110,13 @@ export default function BuyNow() {
       year: 2023,
       fuel: "Petrol",
       km: "2,000 km",
-      price: "$60,000",
+      price: 60000,
+      description: {
+        engine: "3.0L Turbo I6",
+        horsepower: "382 hp",
+        topSpeed: "250 km/h",
+        features: ["Sport Seats", "Launch Control", "Adaptive Suspension"],
+      },
     },
     {
       name: "Lamborghini Huracán",
@@ -77,7 +124,13 @@ export default function BuyNow() {
       year: 2021,
       fuel: "Petrol",
       km: "4,000 km",
-      price: "$280,000",
+      price: 280000,
+      description: {
+        engine: "5.2L V10",
+        horsepower: "631 hp",
+        topSpeed: "325 km/h",
+        features: ["All-Wheel Drive", "Sport Exhaust", "Carbon Fiber Interior"],
+      },
     },
     {
       name: "Ford Mustang GT",
@@ -85,7 +138,13 @@ export default function BuyNow() {
       year: 2020,
       fuel: "Petrol",
       km: "15,000 km",
-      price: "$55,000",
+      price: 55000,
+      description: {
+        engine: "5.0L V8",
+        horsepower: "450 hp",
+        topSpeed: "250 km/h",
+        features: ["Rear-Wheel Drive", "Sport Mode", "Track Apps"],
+      },
     },
     {
       name: "Tesla Model S",
@@ -93,7 +152,13 @@ export default function BuyNow() {
       year: 2023,
       fuel: "Electric",
       km: "1,000 km",
-      price: "$90,000",
+      price: 90000,
+      description: {
+        engine: "Electric Dual Motor",
+        horsepower: "670 hp",
+        topSpeed: "261 km/h",
+        features: ["Autopilot", "Full Self-Driving", "Touchscreen Display"],
+      },
     },
     {
       name: "Porsche 911 GT3",
@@ -101,11 +166,19 @@ export default function BuyNow() {
       year: 2022,
       fuel: "Petrol",
       km: "6,000 km",
-      price: "$220,000",
+      price: 220000,
+      description: {
+        engine: "4.0L Flat-6",
+        horsepower: "502 hp",
+        topSpeed: "320 km/h",
+        features: ["Rear-Wheel Drive", "Sport Chrono Package", "Track-Focused"],
+      },
     },
   ];
 
   const car = cars.find((c) => c.name === decodeURIComponent(carName));
+  const [quantity, setQuantity] = useState(1);
+  const [form, setForm] = useState({ name: "", phone: "", email: "" });
 
   if (!car) {
     return (
@@ -115,80 +188,117 @@ export default function BuyNow() {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-32 px-6">
-        <h1 className="text-3xl text-center py-3 font-bold">Payments</h1>
-      <div className="max-w-5xl mx-auto bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-        <div className="grid md:grid-cols-2">
-          {/* Left side - Car image */}
-          <div>
-            <img
-              src={`/${car.img}`}
-              alt={car.name}
-              className="w-full mt-48 py-2 px-3 m-2 object-cover"
-            />
-          </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(
+      `Purchase confirmed!\nCar: ${car.name}\nQuantity: ${quantity}\nTotal: $${(
+        car.price * quantity
+      ).toLocaleString()}`
+    );
+    // Add your backend submission logic here
+  };
 
-          {/* Right side - Details and form */}
-          <div className="p-8">
-            <h1 className="text-3xl font-bold mb-2">{car.name}</h1>
-            <p className="text-gray-400 mb-4">
+  return (
+    <div className="h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col justify-center px-4">
+      <h1 className="text-4xl md:text-5xl text-center py-6 font-bold mb-8">
+        Purchase Car
+      </h1>
+
+      <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+        {/* Left - Car Image */}
+        <div className="w-full h-full flex items-center justify-center rounded-xl overflow-hidden shadow-2xl">
+          <img
+            src={`/${car.img}`}
+            alt={car.name}
+            className="w-full object-cover transition-transform duration-500 hover:scale-105  "
+          />
+        </div>
+
+        {/* Right - Details and Form */}
+        <div className="flex flex-col justify-center w-full space-y-6">
+          <div>
+            <h2 className="text-3xl font-bold mb-2">{car.name}</h2>
+            <p className="text-gray-400 mb-2">
               {car.year} • {car.fuel} • {car.km}
             </p>
-            <p className="text-2xl text-blue-400 font-semibold mb-6">
-              {car.price}
+
+            {/* Car Description Section */}
+            {car.description && (
+              <div className="bg-gray-800 p-4 rounded-lg mb-4 text-gray-300">
+                <p>
+                  <span className="font-semibold">Engine:</span>{" "}
+                  {car.description.engine}
+                </p>
+                <p>
+                  <span className="font-semibold">Horsepower:</span>{" "}
+                  {car.description.horsepower}
+                </p>
+                <p>
+                  <span className="font-semibold">Top Speed:</span>{" "}
+                  {car.description.topSpeed}
+                </p>
+                <p>
+                  <span className="font-semibold">Features:</span>{" "}
+                  {car.description.features.join(", ")}
+                </p>
+              </div>
+            )}
+
+            <p className="text-2xl text-blue-400 font-semibold mb-1">
+              Price: ${car.price.toLocaleString()}
             </p>
-
-            <form className="space-y-4">
-              <div>
-                <label className="block text-gray-300 mb-1">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300 mb-1">Phone</label>
-                <input
-                  type="text"
-                  placeholder="Enter your phone"
-                  className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300 mb-1">Email</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300 mb-1">Quantity</label>
-                <input
-                  type="number"
-                  defaultValue="1"
-                  min="1"
-                  className="w-full px-4 py-2 bg-gray-700 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg text-lg font-semibold"
-              >
-                Confirm Purchase
-              </button>
-            </form>
-
-            <button
-              onClick={() => navigate(-1)}
-              className="mt-4 w-full bg-gray-700 hover:bg-gray-600 py-3 rounded-lg text-lg font-semibold"
-            >
-              Back
-            </button>
+            <p className="text-xl text-green-400 font-semibold">
+              Total: ${(car.price * quantity).toLocaleString()}
+            </p>
           </div>
+
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Phone"
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              required
+            />
+            <input
+              type="number"
+              min="1"
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              placeholder="Quantity"
+            />
+            <button
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg text-lg font-semibold transition-all duration-300"
+            >
+              Confirm Purchase
+            </button>
+          </form>
+
+          <button
+            onClick={() => navigate(-1)}
+            className="w-full bg-gray-700 hover:bg-gray-600 py-3 rounded-lg text-lg font-semibold transition-all duration-300"
+          >
+            Back
+          </button>
         </div>
       </div>
     </div>

@@ -21,13 +21,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/report" element={<Report />} />
           <Route path='/about' element={<About />} />
-
           <Route path="/" element={<Products />} />
           <Route path="/buy/:carName" element={<BuyNow />} />
         </Routes>
-      </div>
-      <div>
-
       </div>
       <div>
         <Footer />

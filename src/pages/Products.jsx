@@ -5,6 +5,7 @@ import { Link } from "react-router";
 
 export default function Products() {
   const [search, setSearch] = useState("");
+
   const cars = [
     {
       name: "Toyota Corolla",
@@ -12,7 +13,8 @@ export default function Products() {
       year: 2021,
       fuel: "Petrol",
       km: "25,000 km",
-      price: "$15,000",
+      price: 15000,
+      discount: 0.1,
     },
     {
       name: "McLaren 720S",
@@ -20,7 +22,8 @@ export default function Products() {
       year: 2022,
       fuel: "Petrol",
       km: "5,000 km",
-      price: "$280,000",
+      price: 280000,
+      discount: 0,
     },
     {
       name: "Nissan GTR R35",
@@ -28,7 +31,8 @@ export default function Products() {
       year: 2021,
       fuel: "Petrol",
       km: "10,000 km",
-      price: "$120,000",
+      price: 120000,
+      discount: 0.05,
     },
     {
       name: "Aston Martin DB11",
@@ -36,7 +40,8 @@ export default function Products() {
       year: 2020,
       fuel: "Petrol",
       km: "8,000 km",
-      price: "$200,000",
+      price: 200000,
+      discount: 0.15,
     },
     {
       name: "Audi R8",
@@ -44,7 +49,8 @@ export default function Products() {
       year: 2021,
       fuel: "Petrol",
       km: "12,000 km",
-      price: "$170,000",
+      price: 170000,
+      discount: 0,
     },
     {
       name: "BMW M4",
@@ -52,7 +58,8 @@ export default function Products() {
       year: 2022,
       fuel: "Petrol",
       km: "9,000 km",
-      price: "$130,000",
+      price: 130000,
+      discount: 0.1,
     },
     {
       name: "Ferrari 812",
@@ -60,7 +67,8 @@ export default function Products() {
       year: 2022,
       fuel: "Petrol",
       km: "3,500 km",
-      price: "$350,000",
+      price: 350000,
+      discount: 0,
     },
     {
       name: "Toyota GR Supra",
@@ -68,7 +76,8 @@ export default function Products() {
       year: 2023,
       fuel: "Petrol",
       km: "2,000 km",
-      price: "$60,000",
+      price: 60000,
+      discount: 0.08,
     },
     {
       name: "Lamborghini Huracán",
@@ -76,7 +85,8 @@ export default function Products() {
       year: 2021,
       fuel: "Petrol",
       km: "4,000 km",
-      price: "$280,000",
+      price: 280000,
+      discount: 0.05,
     },
     {
       name: "Ford Mustang GT",
@@ -84,7 +94,8 @@ export default function Products() {
       year: 2020,
       fuel: "Petrol",
       km: "15,000 km",
-      price: "$55,000",
+      price: 55000,
+      discount: 0.12,
     },
     {
       name: "Tesla Model S",
@@ -92,7 +103,8 @@ export default function Products() {
       year: 2023,
       fuel: "Electric",
       km: "1,000 km",
-      price: "$90,000",
+      price: 90000,
+      discount: 0,
     },
     {
       name: "Porsche 911 GT3",
@@ -100,7 +112,8 @@ export default function Products() {
       year: 2022,
       fuel: "Petrol",
       km: "6,000 km",
-      price: "$220,000",
+      price: 220000,
+      discount: 0.1,
     },
   ];
 
@@ -109,17 +122,35 @@ export default function Products() {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-black py-16 px-6 min-h-screen ">
+    <div className="relative bg-gradient-to-b from-gray-900 to-black py-16 px-6 min-h-screen overflow-hidden">
+      {/* 🌌 Animated Background Lights */}
+      <motion.img
+        src="/car/light-trail.png"
+        alt="moving light"
+        className="absolute top-0 left-0 w-full opacity-10 pointer-events-none blur-sm"
+        animate={{ x: [0, 150, 0] }}
+        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+      />
+      <motion.img
+        src="car/light-trail.png"
+        alt="moving light"
+        className="absolute bottom-0 right-0 w-full opacity-10 rotate-180 pointer-events-none blur-sm"
+        animate={{ x: [0, -150, 0] }}
+        transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+      />
+
+      {/* 🏷️ Title */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.9 }}
         className="text-4xl text-center m-10 mb-10 font-extrabold text-white tracking-wide"
       >
         Cars for Sale
       </motion.h1>
 
-      <div className="flex justify-center mb-12">
+      {/* 🔍 Search Bar */}
+      <div className="flex justify-center mb-12 relative z-10">
         <div className="relative w-80">
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
           <input
@@ -132,48 +163,82 @@ export default function Products() {
         </div>
       </div>
 
+      {/* 🚗 Car Cards */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-stretch justify-items-center max-w-[1500px] m-auto"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-stretch justify-items-center max-w-[1500px] m-auto relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         {filteredCars.length > 0 ? (
-          filteredCars.map((car, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, y: -10 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="w-full max-w-xs backdrop-blur-lg bg-white/10 border border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300"
-            >
-              <img
-                src={car.img}
-                alt={car.name}
-                className="w-full h-56 object-cover"
-              />
-              <div className="p-5">
-                <h2 className="text-lg font-semibold text-white mb-2">
-                  {car.name}
-                </h2>
-                <p className="text-sm text-gray-400 mb-4">
-                  {car.year} • {car.fuel} • {car.km}
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">
-                    {car.price}
+          filteredCars.map((car, index) => {
+            const discountedPrice = car.price * (1 - car.discount);
+            const hasDiscount = car.discount > 0;
+
+            return (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05, y: -10 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="relative w-full max-w-xs backdrop-blur-lg bg-white/10 border border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300"
+              >
+                {/* 🏷️ Sale Badge */}
+                {hasDiscount && (
+                  <span className="absolute top-3 left-3 text-white bg-red-600 text-xs font-bold px-3 py-2 rounded-full">
+                    SALE {car.discount * 100}%
                   </span>
-                  <Link to={`/buy/${encodeURIComponent(car.name)}`}>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow"
-                    >
-                      Buy Now
-                    </motion.button>
-                  </Link>
+                )}
+
+                <img
+                  src={car.img}
+                  alt={car.name}
+                  className="w-full h-56 object-cover"
+                />
+
+                <div className="p-5">
+                  <h2 className="text-lg font-semibold text-white mb-2">
+                    {car.name}
+                  </h2>
+                  <p className="text-sm text-gray-400 mb-4">
+                    {car.year} • {car.fuel} • {car.km}
+                  </p>
+
+                  <div className="flex justify-between items-center">
+                    <div>
+                      {hasDiscount ? (
+                        <div>
+                          <p className="text-gray-400 line-through text-sm">
+                            ${car.price.toLocaleString()}
+                          </p>
+                          <motion.p
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4 }}
+                            className="text-lg font-bold bg-gradient-to-r from-yellow-400 to-red-400 text-transparent bg-clip-text"
+                          >
+                            ${discountedPrice.toLocaleString()}
+                          </motion.p>
+                        </div>
+                      ) : (
+                        <p className="text-lg font-bold bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">
+                          ${car.price.toLocaleString()}
+                        </p>
+                      )}
+                    </div>
+
+                    <Link to={`/buy/${encodeURIComponent(car.name)}`}>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-black hover:bg-white hover:text-black  text-white px-4 py-2 rounded-lg shadow"
+                      >
+                        Buy Now
+                      </motion.button>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))
+              </motion.div>
+            );
+          })
         ) : (
           <p className="text-white text-center col-span-full text-lg mt-10">
             No cars found
