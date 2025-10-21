@@ -279,7 +279,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="text-3xl font-bold text-blue-400 mb-10"
         >
-          Why Choose Apex Auto?
+          Why Choose Car Dealership?
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-6 bg-gray-800 rounded-xl shadow-lg">

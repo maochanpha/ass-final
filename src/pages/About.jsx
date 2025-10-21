@@ -43,7 +43,7 @@ export default function About() {
         <img
           src="logo/logo.png"
           alt="BMW Showroom"
-          className="rounded-2xl shadow-lg w-full object-cover h-[400px]"
+          className="rounded-2xl shadow-lg w-full object-cover h-[250px]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent rounded-2xl" />
       </motion.div>

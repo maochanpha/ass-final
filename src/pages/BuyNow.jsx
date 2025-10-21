@@ -59,7 +59,11 @@ export default function BuyNow() {
         engine: "5.2L V12 Twin-Turbo",
         horsepower: "600 hp",
         topSpeed: "322 km/h",
-        features: ["Luxury Interior", "Adaptive Cruise", "Touchscreen Infotainment"],
+        features: [
+          "Luxury Interior",
+          "Adaptive Cruise",
+          "Touchscreen Infotainment",
+        ],
       },
     },
     {
@@ -195,54 +199,51 @@ export default function BuyNow() {
         car.price * quantity
       ).toLocaleString()}`
     );
-    // Add your backend submission logic here
   };
 
   return (
-    <div className="h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col justify-center px-4">
-      <h1 className="text-4xl md:text-5xl text-center py-6 font-bold mb-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col items-center py-10 px-6 md:px-12">
+      <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center">
         Purchase Car
       </h1>
 
-      <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      <div className="w-full max-w-7xl grid md:grid-cols-2 gap-10 bg-gray-950/40 rounded-2xl shadow-2xl p-6 md:p-10">
         {/* Left - Car Image */}
-        <div className="w-full h-full flex items-center justify-center rounded-xl overflow-hidden shadow-2xl">
+        <div className="flex items-center justify-center">
           <img
             src={`/${car.img}`}
             alt={car.name}
-            className="w-full object-cover transition-transform duration-500 hover:scale-105  "
+            className="w-full h-full max-h-[500px] object-contain rounded-xl shadow-lg transition-transform duration-500 hover:scale-105"
           />
         </div>
 
         {/* Right - Details and Form */}
-        <div className="flex flex-col justify-center w-full space-y-6">
+        <div className="flex flex-col justify-center space-y-6">
           <div>
             <h2 className="text-3xl font-bold mb-2">{car.name}</h2>
             <p className="text-gray-400 mb-2">
               {car.year} • {car.fuel} • {car.km}
             </p>
 
-            {/* Car Description Section */}
-            {car.description && (
-              <div className="bg-gray-800 p-4 rounded-lg mb-4 text-gray-300">
-                <p>
-                  <span className="font-semibold">Engine:</span>{" "}
-                  {car.description.engine}
-                </p>
-                <p>
-                  <span className="font-semibold">Horsepower:</span>{" "}
-                  {car.description.horsepower}
-                </p>
-                <p>
-                  <span className="font-semibold">Top Speed:</span>{" "}
-                  {car.description.topSpeed}
-                </p>
-                <p>
-                  <span className="font-semibold">Features:</span>{" "}
-                  {car.description.features.join(", ")}
-                </p>
-              </div>
-            )}
+            {/* Car Description */}
+            <div className="bg-gray-800/60 p-4 rounded-lg mb-4 text-gray-300">
+              <p>
+                <span className="font-semibold">Engine:</span>{" "}
+                {car.description.engine}
+              </p>
+              <p>
+                <span className="font-semibold">Horsepower:</span>{" "}
+                {car.description.horsepower}
+              </p>
+              <p>
+                <span className="font-semibold">Top Speed:</span>{" "}
+                {car.description.topSpeed}
+              </p>
+              <p>
+                <span className="font-semibold">Features:</span>{" "}
+                {car.description.features.join(", ")}
+              </p>
+            </div>
 
             <p className="text-2xl text-blue-400 font-semibold mb-1">
               Price: ${car.price.toLocaleString()}
@@ -258,7 +259,7 @@ export default function BuyNow() {
               placeholder="Full Name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-blue-500 outline-none"
               required
             />
             <input
@@ -266,7 +267,7 @@ export default function BuyNow() {
               placeholder="Phone"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-blue-500 outline-none"
               required
             />
             <input
@@ -274,7 +275,7 @@ export default function BuyNow() {
               placeholder="Email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-blue-500 outline-none"
               required
             />
             <input
@@ -282,9 +283,10 @@ export default function BuyNow() {
               min="1"
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
-              className="w-full px-4 py-3 bg-gray-800 rounded-lg text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="Quantity"
             />
+
             <button
               type="submit"
               className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg text-lg font-semibold transition-all duration-300"

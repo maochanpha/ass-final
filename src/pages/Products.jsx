@@ -149,6 +149,34 @@ export default function Products() {
         Cars for Sale
       </motion.h1>
 
+      {/* 🔘 Category Buttons */}
+      <div className="flex justify-center mb-6 space-x-4 z-10 relative">
+        <Link
+          to="/products"
+          className="px-4 py-2 rounded-full font-semibold bg-blue-500 text-white transition"
+        >
+          All
+        </Link>
+        <Link
+          to="/products/limited"
+          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
+        >
+          Limited
+        </Link>
+        <Link
+          to="/products/premium"
+          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
+        >
+          Premium
+        </Link>
+        <Link
+          to="/products/retro"
+          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
+        >
+          Retro
+        </Link>
+      </div>
+
       {/* 🔍 Search Bar */}
       <div className="flex justify-center mb-12 relative z-10">
         <div className="relative w-80">
