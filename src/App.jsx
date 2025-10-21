@@ -8,6 +8,7 @@ import Report from "./pages/Report";
 import About from "./pages/About";
 import Footer from './components/Footer'
 import BuyNow from "./pages/BuyNow";
+import Limited from "./pages/Limited";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path='/about' element={<About />} />
           <Route path="/" element={<Products />} />
+          <Route path="/products/limited" element={<Limited />} />
           <Route path="/buy/:carName" element={<BuyNow />} />
         </Routes>
       </div>

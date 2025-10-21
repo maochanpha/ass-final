@@ -158,7 +158,7 @@ export default function Products() {
           All
         </Link>
         <Link
-          to="/products/limited"
+          to="/products/Limited"
           className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
         >
           Limited
