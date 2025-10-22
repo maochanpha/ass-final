@@ -13,7 +13,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "25,000 km",
       price: 15000,
-      
+
       description: {
         engine: "1.8L 4-Cylinder",
         horsepower: "139 hp",
@@ -165,7 +165,7 @@ export default function BuyNow() {
         features: ["Autopilot", "Full Self-Driving", "Touchscreen Display"],
       },
     },
-    
+
     {
       name: "Porsche 911 GT3",
       img: "car/porches911gt3.png",
@@ -181,48 +181,51 @@ export default function BuyNow() {
       },
     },
     {
-  name: "Ferrari SF90 Stradale",
-  img: "car/feature.png",
-  year: 2024,
-  fuel: "Hybrid",
-  km: "5,000 km",
-  price: 520000,
-  description: {
-    engine: "4.0L V8 Plug-in Hybrid",
-    horsepower: "986 hp",
-    topSpeed: "340 km/h",
-    features: ["Electric Drive Mode", "F1 Traction", "Carbon Fiber Chassis"],
-  },
-},
-{
-  name: "Lamborghini Aventador SVJ",
-  img: "car/lamborghini.png",
-  year: 2023,
-  fuel: "Petrol",
-  km: "3,500 km",
-  price: 620000,
-  description: {
-    engine: "6.5L V12",
-    horsepower: "759 hp",
-    topSpeed: "350 km/h",
-    features: ["Carbon Fiber Body", "Active Aero", "Track Mode"],
-  },
-},
-{
-  name: "Porsche 911 Turbo S Limited",
-  img: "car/porsche.png",
-  year: 2024,
-  fuel: "Petrol",
-  km: "2,000 km",
-  price: 380000,
-  description: {
-    engine: "3.8L Twin-Turbo Flat-6",
-    horsepower: "640 hp",
-    topSpeed: "330 km/h",
-    features: ["PDK Transmission", "AWD", "Lightweight Build"],
-  },
-},
-
+      name: "Ferrari SF90 Stradale",
+      img: "car/feature.png",
+      year: 2024,
+      fuel: "Hybrid",
+      km: "5,000 km",
+      price: 520000,
+      description: {
+        engine: "4.0L V8 Plug-in Hybrid",
+        horsepower: "986 hp",
+        topSpeed: "340 km/h",
+        features: [
+          "Electric Drive Mode",
+          "F1 Traction",
+          "Carbon Fiber Chassis",
+        ],
+      },
+    },
+    {
+      name: "Lamborghini Aventador SVJ",
+      img: "car/lamborghini.png",
+      year: 2023,
+      fuel: "Petrol",
+      km: "3,500 km",
+      price: 620000,
+      description: {
+        engine: "6.5L V12",
+        horsepower: "759 hp",
+        topSpeed: "350 km/h",
+        features: ["Carbon Fiber Body", "Active Aero", "Track Mode"],
+      },
+    },
+    {
+      name: "Porsche 911 Turbo S Limited",
+      img: "car/porsche.png",
+      year: 2024,
+      fuel: "Petrol",
+      km: "2,000 km",
+      price: 380000,
+      description: {
+        engine: "3.8L Twin-Turbo Flat-6",
+        horsepower: "640 hp",
+        topSpeed: "330 km/h",
+        features: ["PDK Transmission", "AWD", "Lightweight Build"],
+      },
+    },
   ];
 
   const car = cars.find((c) => c.name === decodeURIComponent(carName));
@@ -325,10 +328,10 @@ export default function BuyNow() {
             />
             <input
               type="number"
-              min="1"
+              min="0"
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
-              className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full rounded-xl border border-blue-500 bg-gray-800 text-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Quantity"
             />
 
