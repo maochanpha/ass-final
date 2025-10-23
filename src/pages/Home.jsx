@@ -184,7 +184,7 @@ export default function Home() {
       </div>
 
       {/* ================= FLASH SALE BANNER ================= */}
-      <section className="py-4 px-6 bg-red-600 text-white text-center font-semibold text-lg animate-pulse">
+      <section className="py-4 px-6 bg-yellow-500 text-white text-center font-semibold text-lg animate-pulse rounded-md">
         ⚡ Flash Sale: This weekend only! Limited stock on select supercars! ⚡
       </section>
 

@@ -9,6 +9,8 @@ import About from "./pages/About";
 import Footer from './components/Footer'
 import BuyNow from "./pages/BuyNow";
 import Limited from "./pages/Limited";
+import Premium from "./pages/Premium";
+import Retro from "./pages/Retro";
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path="/" element={<Products />} />
           <Route path="/products/limited" element={<Limited />} />
+          <Route path="/products/premium" element={<Premium />} />
+          <Route path="/products/retro" element={<Retro />} />
           <Route path="/buy/:carName" element={<BuyNow />} />
         </Routes>
       </div>

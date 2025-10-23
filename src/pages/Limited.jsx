@@ -40,7 +40,7 @@ export default function Limited() {
   );
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 via-black to-gray-950 min-h-screen text-white px-6 py-16">
+    <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-blue-950 min-h-screen text-white px-6 py-16">
       {/* Header */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
@@ -62,31 +62,31 @@ export default function Limited() {
         />
       </div>
       <div className="flex justify-center mb-6 space-x-4 z-10 relative">
-              <Link
-                to="/products"
-                className="px-4 py-2 rounded-full font-semibold bg-blue-500 text-white transition"
-              >
-                All
-              </Link>
-              <Link
-                to="/products/Limited"
-                className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-              >
-                Limited
-              </Link>
-              <Link
-                to="/products/premium"
-                className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-              >
-                Premium
-              </Link>
-              <Link
-                to="/products/retro"
-                className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-              >
-                Retro
-              </Link>
-            </div>
+        <Link
+          to="/products"
+          className="px-4 py-2 rounded-full font-semibold bg-blue-500 text-white transition"
+        >
+          All
+        </Link>
+        <Link
+          to="/products/Limited"
+          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
+        >
+          Limited
+        </Link>
+        <Link
+          to="/products/premium"
+          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
+        >
+          Premium
+        </Link>
+        <Link
+          to="/products/retro"
+          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
+        >
+          Retro
+        </Link>
+      </div>
       {/* Car Grid */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -124,7 +124,7 @@ export default function Limited() {
               </p>
               <Link
                 to={`/buy/${encodeURIComponent(car.name)}`}
-                className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold transition mt-3"
+                className="inline-block bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded-full font-semibold transition mt-3"
               >
                 Buy Now
               </Link>

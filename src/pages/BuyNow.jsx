@@ -42,6 +42,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "10,000 km",
       price: 120000,
+      discount: 0.05,
       description: {
         engine: "3.8L V6 Twin-Turbo",
         horsepower: "565 hp",
@@ -56,6 +57,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "8,000 km",
       price: 200000,
+      discount: 0.15,
       description: {
         engine: "5.2L V12 Twin-Turbo",
         horsepower: "600 hp",
@@ -88,6 +90,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "9,000 km",
       price: 130000,
+      discount: 0.1,
       description: {
         engine: "3.0L Twin-Turbo I6",
         horsepower: "503 hp",
@@ -116,6 +119,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "2,000 km",
       price: 60000,
+      discount: 0.08,
       description: {
         engine: "3.0L Turbo I6",
         horsepower: "382 hp",
@@ -130,6 +134,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "4,000 km",
       price: 280000,
+      discount: 0.05,
       description: {
         engine: "5.2L V10",
         horsepower: "631 hp",
@@ -144,6 +149,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "15,000 km",
       price: 55000,
+      discount: 0.12,
       description: {
         engine: "5.0L V8",
         horsepower: "450 hp",
@@ -173,6 +179,7 @@ export default function BuyNow() {
       fuel: "Petrol",
       km: "6,000 km",
       price: 220000,
+      discount: 0.1,
       description: {
         engine: "4.0L Flat-6",
         horsepower: "502 hp",
@@ -224,6 +231,60 @@ export default function BuyNow() {
         horsepower: "640 hp",
         topSpeed: "330 km/h",
         features: ["PDK Transmission", "AWD", "Lightweight Build"],
+      },
+    },
+    {
+      name: "Bugatti Chiron Pur Sport",
+      img: "car/bugati.png",
+      year: 2024,
+      fuel: "Petrol",
+      km: "1,200 km",
+      price: 3500000,
+      description: {
+        engine: "8.0L Quad-Turbo W16",
+        horsepower: "1,479 hp",
+        topSpeed: "350 km/h",
+        features: [
+          "Aerodynamic Enhancements",
+          "Lightweight Chassis",
+          "Luxury Interior",
+        ],
+      },
+    },
+    {
+      name: "McLaren Speedtail",
+      img: "car/mclaren.png",
+      year: 2023,
+      fuel: "Hybrid",
+      km: "800 km",
+      price: 2200000,
+      description: {
+        engine: "4.0L Twin-Turbo V8 + Electric Motor",
+        horsepower: "1,036 hp",
+        topSpeed: "402 km/h",
+        features: [
+          "Three-Seat Layout",
+          "Carbon Fiber Body",
+          "Advanced Aerodynamics",
+        ],
+      },
+    },
+    {
+      name: "Aston Martin Valkyrie",
+      img: "car/aston.png",
+      year: 2024,
+      fuel: "Hybrid",
+      km: "500 km",
+      price: 3000000,
+      description: {
+        engine: "6.5L Naturally Aspirated V12 + Hybrid",
+        horsepower: "1,160 hp",
+        topSpeed: "402 km/h",
+        features: [
+          "F1-Inspired Aerodynamics",
+          "Carbon-Fiber Chassis",
+          "Track-Focused Suspension",
+        ],
       },
     },
   ];
@@ -297,7 +358,12 @@ export default function BuyNow() {
               Price: ${car.price.toLocaleString()}
             </p>
             <p className="text-xl text-green-400 font-semibold">
-              Total: ${(car.price * quantity).toLocaleString()}
+              Total: $
+              {(
+                car.price *
+                (1 - (car.discount || 0)) *
+                quantity
+              ).toLocaleString()}
             </p>
           </div>
 
