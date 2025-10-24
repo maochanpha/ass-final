@@ -133,7 +133,7 @@ export default function Home() {
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white relative">
       {/* ================= SLIDE BANNER ================= */}
-      <div className="relative w-full h-[520px] overflow-hidden mt-20 rounded-lg">
+      <div className="relative w-full h-[550px] overflow-hidden mt-16 rounded-lg">
         <AnimatePresence>
           <motion.img
             key={banners[currentIndex].img}
@@ -143,7 +143,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover  "
           />
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent"></div>

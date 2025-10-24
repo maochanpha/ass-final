@@ -9,7 +9,7 @@ export default function Contact() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl font-extrabold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+        className="text-5xl font-extrabold mb-12 text-center mt-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
       >
         Get In Touch
       </motion.h1>

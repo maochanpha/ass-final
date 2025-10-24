@@ -46,7 +46,7 @@ export default function Limited() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-bold text-center mb-10"
+        className="text-4xl font-bold text-center mb-10 mt-16"
       >
         🔥 Limited Edition Cars
       </motion.h1>
@@ -61,32 +61,28 @@ export default function Limited() {
           className="w-full max-w-md px-4 py-2 rounded-full text-black focus:outline-none"
         />
       </div>
-      <div className="flex justify-center mb-6 space-x-4 z-10 relative">
-        <Link
-          to="/products"
-          className="px-4 py-2 rounded-full font-semibold bg-blue-500 text-white transition"
-        >
-          All
-        </Link>
-        <Link
-          to="/products/Limited"
-          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-        >
-          Limited
-        </Link>
-        <Link
-          to="/products/premium"
-          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-        >
-          Premium
-        </Link>
-        <Link
-          to="/products/retro"
-          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-        >
-          Retro
-        </Link>
+      <div className="flex justify-center mb-10 flex-wrap gap-4 relative z-10">
+        {[
+          { name: "All", path: "/products" },
+          { name: "Limited", path: "/products/limited" },
+          { name: "Premium", path: "/products/premium" },
+          { name: "Retro", path: "/products/retro" },
+        ].map((item) => (
+          <Link
+            key={item.name}
+            to={item.path}
+            className="px-6 py-2.5 rounded-full font-medium 
+                 bg-blue-900 text-gray-300 
+                 hover:bg-blue-500 hover:text-white
+                 shadow-sm hover:shadow-peach-500/30
+                 hover:scale-105 transition-all duration-300
+                 border border-transparent hover:border-peach-400"
+          >
+            {item.name}
+          </Link>
+        ))}
       </div>
+
       {/* Car Grid */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"

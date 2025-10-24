@@ -46,7 +46,7 @@ export default function Retro() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-bold text-center mb-10"
+        className="text-4xl font-bold text-center mb-10 mt-16"
       >
         🏁 Retro Cars
       </motion.h1>
@@ -63,31 +63,26 @@ export default function Retro() {
       </div>
 
       {/* Filter Links */}
-      <div className="flex justify-center mb-6 space-x-4 z-10 relative">
-        <Link
-          to="/products"
-          className="px-4 py-2 rounded-full font-semibold bg-yellow-600 text-white transition"
-        >
-          All
-        </Link>
-        <Link
-          to="/products/Limited"
-          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-        >
-          Limited
-        </Link>
-        <Link
-          to="/products/Premium"
-          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-        >
-          Premium
-        </Link>
-        <Link
-          to="/products/Retro"
-          className="px-4 py-2 rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition"
-        >
-          Retro
-        </Link>
+      <div className="flex justify-center mb-10 flex-wrap gap-4 relative z-10">
+        {[
+          { name: "All", path: "/products" },
+          { name: "Limited", path: "/products/limited" },
+          { name: "Premium", path: "/products/premium" },
+          { name: "Retro", path: "/products/retro" },
+        ].map((item) => (
+          <Link
+            key={item.name}
+            to={item.path}
+            className="px-6 py-2.5 rounded-full font-medium 
+                 bg-orange-200 text-black 
+                 hover:bg-orange-500 hover:text-white
+                 shadow-sm hover:shadow-peach-500/30
+                 hover:scale-105 transition-all duration-300
+                 border border-transparent hover:border-peach-400"
+          >
+            {item.name}
+          </Link>
+        ))}
       </div>
 
       {/* Car Grid */}
@@ -138,9 +133,7 @@ export default function Retro() {
 
       {/* No Results */}
       {filteredCars.length === 0 && (
-        <p className="text-center text-gray-400 mt-10">
-          No retro cars found.
-        </p>
+        <p className="text-center text-gray-400 mt-10">No retro cars found.</p>
       )}
     </div>
   );

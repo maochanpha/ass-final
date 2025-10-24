@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-black">
+      <div className="">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />

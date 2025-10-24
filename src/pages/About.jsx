@@ -7,7 +7,7 @@ export default function About() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16 text-gray-200 overflow-hidden">
+    <div className=" mx-auto px-6 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-gray-200 ">
 
       {/* ================= HEADER ================= */}
       <motion.div
@@ -19,7 +19,7 @@ export default function About() {
         <motion.h1
           variants={fadeUp}
           transition={{ duration: 0.8 }}
-          className="text-5xl mb-4 text-gray-400 font-semibold"
+          className="text-5xl mb-4 mt-16 text-gray-400 font-semibold"
         >
           Our Company
         </motion.h1>
@@ -38,7 +38,7 @@ export default function About() {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="relative mb-14"
+        className="relative mb-14 w-full max-w-4xl mx-auto rounded-2xl shadow-lg overflow-hidden"
       >
         <img
           src="logo/logo.png"
@@ -152,9 +152,9 @@ export default function About() {
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { name: "Mao ChanPha", role: "Lead Engineer", img: "/team/alex.png" },
+            { name: "Mao ChanPha", role: "Product Manager", img: "/team/alex.png" },
             { name: "Prum Settemun", role: "Design Director", img: "/team/sophia.png" },
-            { name: "Theang Vireak", role: "Product Manager", img: "/team/mark.png" },
+            { name: "Theang Vireak", role: "Lead Engineer", img: "/team/mark.png" },
           ].map((member, index) => (
             <motion.div
               key={index}
