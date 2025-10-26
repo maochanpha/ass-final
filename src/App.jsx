@@ -11,13 +11,14 @@ import BuyNow from "./pages/BuyNow";
 import Limited from "./pages/Limited";
 import Premium from "./pages/Premium";
 import Retro from "./pages/Retro";
-
+import ScrollToTop from "./pages/ScrollToTop";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <div className="">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
