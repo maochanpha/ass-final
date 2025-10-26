@@ -132,7 +132,6 @@ export default function Home() {
 
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white relative">
-      {/* ================= SLIDE BANNER ================= */}
       <div className="relative w-full h-[550px] overflow-hidden mt-16 rounded-lg">
         <AnimatePresence>
           <motion.img
@@ -183,12 +182,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ================= FLASH SALE BANNER ================= */}
       <section className="py-4 px-6 bg-yellow-500 text-white text-center font-semibold text-lg animate-pulse rounded-md">
         ⚡ Flash Sale: This weekend only! Limited stock on select supercars! ⚡
       </section>
 
-      {/* ================= AVAILABLE CARS ================= */}
       <section className="py-16 px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -214,7 +211,6 @@ export default function Home() {
                   alt={car.name}
                   className="w-full h-52 object-cover"
                 />
-                {/* Limited Stock Timer */}
                 {car.stock <= 5 && car.stock > 0 && (
                   <LimitedStockTimer stock={car.stock} endTime={car.saleEnd} />
                 )}
@@ -234,7 +230,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= FEATURED SUPERCAR ================= */}
       <section className="py-16 px-6 bg-gray-900 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -262,7 +257,7 @@ export default function Home() {
               0–100 km/h in 2.5s
             </p>
             <Link
-              to="/products"
+              to="/products/limited"
               className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition"
             >
               View Details
@@ -271,7 +266,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= WHY CHOOSE US ================= */}
       <section className="py-16 px-6 bg-gray-900 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -305,7 +299,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= COMING SOON ================= */}
       <section className="py-16 px-6 bg-gradient-to-b from-black to-gray-900">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -338,7 +331,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= CUSTOMER TESTIMONIALS ================= */}
       <section className="py-16 px-6 bg-gray-800 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -366,7 +358,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= STATS / AWARDS ================= */}
       <section className="py-16 px-6 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -396,7 +387,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= NEWSLETTER SIGNUP ================= */}
       <section className="py-16 px-6 bg-gray-800 text-center">
         <h2 className="text-3xl font-bold text-blue-400 mb-4">Stay Updated!</h2>
         <p className="text-gray-300 mb-6">
@@ -414,7 +404,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= FLOATING CHAT BUTTON ================= */}
       <div className="fixed bottom-6 right-6 z-50">
         <a
           href="https://wa.me/1234567890"

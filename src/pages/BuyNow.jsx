@@ -312,12 +312,11 @@ export default function BuyNow() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col items-center py-8 px-6 md:px-12">
-      <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center mt-10">
+      <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center mt-20">
         Purchase Car
       </h1>
 
       <div className="w-full max-w-7xl grid md:grid-cols-2 gap-10 bg-gray-950/40 rounded-2xl shadow-2xl p-6 md:p-10">
-        {/* Left - Car Image */}
         <div className="flex items-center justify-center">
           <img
             src={`/${car.img}`}
@@ -326,7 +325,6 @@ export default function BuyNow() {
           />
         </div>
 
-        {/* Right - Details and Form */}
         <div className="flex flex-col justify-center space-y-6">
           <div>
             <h2 className="text-3xl font-bold mb-2">{car.name}</h2>
@@ -334,7 +332,6 @@ export default function BuyNow() {
               {car.year} • {car.fuel} • {car.km}
             </p>
 
-            {/* Car Description */}
             <div className="bg-gray-800/60 p-4 rounded-lg mb-4 text-gray-300">
               <p>
                 <span className="font-semibold">Engine:</span>{" "}

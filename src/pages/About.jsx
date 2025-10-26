@@ -9,7 +9,6 @@ export default function About() {
   return (
     <div className=" mx-auto px-6 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-gray-200 ">
 
-      {/* ================= HEADER ================= */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -32,7 +31,6 @@ export default function About() {
         </motion.p>
       </motion.div>
 
-      {/* ================= HERO IMAGE ================= */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -40,15 +38,16 @@ export default function About() {
         viewport={{ once: true }}
         className="relative mb-14 w-full max-w-4xl mx-auto rounded-2xl shadow-lg overflow-hidden"
       >
-        <img
-          src="logo/logo.png"
-          alt="BMW Showroom"
-          className="rounded-2xl shadow-lg w-full object-cover h-[250px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent rounded-2xl" />
+        <div className="w-full aspect-[16/9] md:aspect-[4/1]">
+    <img
+      src="logo/logo.png"
+      alt="BMW Showroom"
+      className="rounded-2xl shadow-lg w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent rounded-2xl" />
+  </div>
       </motion.div>
 
-      {/* ================= HERITAGE ================= */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -79,7 +78,6 @@ export default function About() {
         </motion.blockquote>
       </motion.section>
 
-      {/* ================= CORE VALUES / MISSION ================= */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -89,7 +87,7 @@ export default function About() {
         <motion.h2 variants={fadeUp} className="text-3xl font-semibold text-white mb-10 border-l-4 border-blue-500 pl-4">
           Our Mission & Values
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {[
             { title: "Innovation", desc: "Pushing automotive technology forward." },
             { title: "Quality", desc: "Delivering premium performance and reliability." },
@@ -107,7 +105,6 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* ================= MILESTONES / TIMELINE ================= */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -136,7 +133,6 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* ================= TEAM ================= */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -173,7 +169,6 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* ================= AWARDS / RECOGNITION ================= */}
       <motion.section className="py-16 px-6 text-center">
         <motion.h2 variants={fadeUp} className="text-3xl font-semibold text-white mb-10 border-l-4 border-blue-500 pl-4">
           Awards & Recognition
@@ -190,7 +185,6 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* ================= SIGNATURE / FOOTER ================= */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

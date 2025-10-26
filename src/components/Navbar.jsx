@@ -19,11 +19,10 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: 0 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+      transition={{ duration: 0.1, ease: "easeInOut" }}
       className="fixed w-full top-0 z-50 bg-gradient-to-r from-gray-900 to-black text-white px-9 py-5 shadow-2xl backdrop-blur-sm"
     >
       <div className="flex justify-between items-center">
-        {/* Logo */}
         <motion.h1
           whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
           className="text-2xl font-bold tracking-wide"
@@ -31,7 +30,6 @@ export default function Navbar() {
           Car<span className="text-blue-500">Dealership</span>
         </motion.h1>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-10 text-gray-300">
           {links.map((link) => (
             <li key={link.name} className="relative group">
@@ -46,9 +44,12 @@ export default function Navbar() {
                 {link.name}
               </Link>
 
-              {/* Dropdown for Products */}
               {link.name === "Products" && (
-                <ul className="absolute top-full left-0 bg-gray-800 text-white p-4 mt-2 hidden group-hover:block rounded shadow-lg z-10">
+                <ul
+                  className="absolute top-full left-0 bg-gray-800 text-white p-4 mt-2 rounded shadow-lg z-10
+               opacity-0 scale-y-0 origin-top transition-all duration-300 
+               group-hover:opacity-100 group-hover:scale-y-100"
+                >
                   <li>
                     <Link
                       to="/products/limited"
@@ -79,7 +80,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-3xl focus:outline-none  text-gray-200 hover:text-white transition"
           onClick={() => setIsOpen(!isOpen)}
@@ -88,11 +88,9 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Overlay & Menu */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Background overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 50 }}
@@ -102,18 +100,16 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Sidebar */}
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 80, damping: 15 }}
               className="fixed top-0 left-0 w-72 h-[100vh] 
-                   bg-gradient-to-b from-blue-900 via-gray-900 to-black
-                   text-white z-50 shadow-2xl border-r border-blue-800/40"
+                   bg-gradient-to-b from-blue-950 via-gray-900 to-black
+                   text-white z-50 shadow-2xl rounded-md"
             >
-              {/* Header */}
-              <div className="flex justify-between items-center px-5 py-4 border-b border-gray-700/50">
+              <div className="flex justify-between items-center px-5 py-4">
                 <h2 className="text-xl font-semibold">Menu</h2>
                 <HiX
                   className="text-2xl cursor-pointer hover:text-blue-400 transition"
@@ -121,7 +117,6 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* Menu Links */}
               <motion.ul
                 initial="hidden"
                 animate="visible"

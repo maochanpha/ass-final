@@ -123,23 +123,8 @@ export default function Products() {
 
   return (
     <div className="relative bg-gradient-to-b from-gray-900 to-black py-16 px-6 min-h-screen overflow-hidden">
-      {/* 🌌 Animated Background Lights */}
-      <motion.img
-        src="/car/light-trail.png"
-        alt="moving light"
-        className="absolute top-0 left-0 w-full opacity-10 pointer-events-none blur-sm"
-        animate={{ x: [0, 150, 0] }}
-        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
-      />
-      <motion.img
-        src="car/light-trail.png"
-        alt="moving light"
-        className="absolute bottom-0 right-0 w-full opacity-10 rotate-180 pointer-events-none blur-sm"
-        animate={{ x: [0, -150, 0] }}
-        transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-      />
 
-      {/* 🏷️ Title */}
+
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -171,7 +156,6 @@ export default function Products() {
         ))}
       </div>
 
-      {/* 🔍 Search Bar */}
       <div className="flex justify-center mb-12 relative z-10">
         <div className="relative w-80">
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
@@ -185,7 +169,6 @@ export default function Products() {
         </div>
       </div>
 
-      {/* 🚗 Car Cards */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-stretch justify-items-center max-w-[1500px] m-auto relative z-10"
         initial={{ opacity: 0 }}
@@ -204,7 +187,6 @@ export default function Products() {
                 transition={{ type: "spring", stiffness: 200 }}
                 className="relative w-full max-w-xs backdrop-blur-lg bg-white/10 border border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300"
               >
-                {/* 🏷️ Sale Badge */}
                 {hasDiscount && (
                   <span className="absolute top-3 left-3 text-white bg-red-600 text-xs font-bold px-3 py-2 rounded-full">
                     SALE {car.discount * 100}%

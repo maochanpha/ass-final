@@ -50,7 +50,6 @@ export default function ModernFooter() {
         className="bg-gradient-to-b from-gray-900 to-black text-gray-300 rounded-none"
       >
         <div className="mx-auto w-full max-w-8xl px-6 py-10 md:px-12 lg:px-16">
-          {/* Top Grid Section */}
           <motion.div
             className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-5"
             initial={{ opacity: 0, y: 30 }}
@@ -84,7 +83,6 @@ export default function ModernFooter() {
             ))}
           </motion.div>
 
-          {/* Divider */}
           <motion.div
             className="my-8 border-t border-gray-700"
             initial={{ scaleX: 0 }}
@@ -93,7 +91,6 @@ export default function ModernFooter() {
             viewport={{ once: true }}
           />
 
-          {/* Bottom Bar */}
           <motion.div
             className="flex flex-col items-center justify-between space-y-6 sm:flex-row sm:space-y-0"
             initial={{ opacity: 0 }}
@@ -105,7 +102,6 @@ export default function ModernFooter() {
               <FooterCopyright href="#" by="ModernCars™" year={2025} />
             </div>
 
-            {/* Social Icons */}
             <div className="flex space-x-6">
               {socialIcons.map((Icon, i) => (
                 <motion.div

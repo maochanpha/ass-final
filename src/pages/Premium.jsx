@@ -41,7 +41,6 @@ export default function Premium() {
 
   return (
     <div className="bg-gradient-to-b from-yellow-600 via-yellow-900 to-black min-h-screen text-white px-6 py-16">
-      {/* Header */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -51,7 +50,6 @@ export default function Premium() {
         ✨ Premium Cars
       </motion.h1>
 
-      {/* Search Bar */}
       <div className="flex justify-center mb-8">
         <input
           type="text"
@@ -84,7 +82,6 @@ export default function Premium() {
         ))}
       </div>
 
-      {/* Car Grid */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         initial="hidden"
@@ -128,7 +125,6 @@ export default function Premium() {
         ))}
       </motion.div>
 
-      {/* No Results */}
       {filteredCars.length === 0 && (
         <p className="text-center text-gray-400 mt-10">
           No premium cars found.

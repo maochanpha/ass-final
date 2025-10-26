@@ -83,7 +83,6 @@ export default function Limited() {
         ))}
       </div>
 
-      {/* Car Grid */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         initial="hidden"
@@ -129,7 +128,6 @@ export default function Limited() {
         ))}
       </motion.div>
 
-      {/* No Results */}
       {filteredCars.length === 0 && (
         <p className="text-center text-gray-400 mt-10">
           No limited cars found.

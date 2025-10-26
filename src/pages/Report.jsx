@@ -30,7 +30,7 @@ export default function MessageReport() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl font-bold mb-8 text-center text-blue-400"
+        className="text-4xl font-bold mb-8 mt-20 text-center text-blue-400"
       >
         <TypeAnimation
           sequence={[
@@ -46,7 +46,6 @@ export default function MessageReport() {
         />
       </motion.div>
 
-      {/* FEEDBACK FORM */}
       <motion.form
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 30 }}
@@ -111,7 +110,6 @@ export default function MessageReport() {
         </motion.button>
       </motion.form>
 
-      {/* SUCCESS MESSAGE */}
       {submitted && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
