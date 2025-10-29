@@ -8,7 +8,7 @@ export default function Contact() {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl font-extrabold mb-16 text-center bg-clip-text mt-40 text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+        className="text-5xl font-extrabold mb-16 text-center bg-clip-text mt-40 text-transparent bg-gradient-to-r from-blue-600 to-gray-800"
       >
         Get In Touch
       </motion.h1>
@@ -23,7 +23,8 @@ export default function Contact() {
         <div className="flex flex-col justify-center space-y-6">
           <h2 className="text-3xl font-semibold text-blue-400">Contact Info</h2>
           <p className="text-gray-300 leading-relaxed">
-            Have questions about our cars or services? Reach out — we’d love to hear from you. 
+            Have questions about our cars or services? Reach out — we’d love to
+            hear from you.
           </p>
 
           <div className="flex flex-col gap-3 text-blue-300">
@@ -38,14 +39,29 @@ export default function Contact() {
           transition={{ duration: 0.3 }}
           className="flex flex-col space-y-5  "
         >
-         <input type="text" placeholder="Name" className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 border border-black" />
-         <input type="email" placeholder="Email" className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 border border-black" />
-         <textarea name="message" placeholder="Message" className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 border-black" />
+          <input
+            type="text"
+            placeholder="Name"
+            class="bg-gradient-to-r from-black via-gray-800 to-blue-900 rounded-2xl p-4 shadow-lg placeholder-gray-400 text-white focus:outline-none focus:ring-4 focus:ring-blue-500 transition-all duration-300 ease-in-out w-full mb-4 hover:scale-105 hover:shadow-blue-500/50"
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            class="bg-gradient-to-r from-black via-gray-800 to-blue-900 rounded-2xl p-4 shadow-lg placeholder-gray-400 text-white focus:outline-none focus:ring-4 focus:ring-blue-500 transition-all duration-300 ease-in-out w-full mb-4 hover:scale-105 hover:shadow-blue-500/50"
+          />
+
+          <textarea
+            name="message"
+            placeholder="Message"
+            class="bg-gradient-to-r from-black via-gray-800 to-blue-900 rounded-2xl p-4 shadow-lg placeholder-gray-400 text-white focus:outline-none focus:ring-4 focus:ring-blue-500 transition-all duration-300 ease-in-out w-full h-32 resize-none hover:scale-105 hover:shadow-blue-500/50"
+          ></textarea>
+
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0px 0px 25px #6366f1" }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 py-3 w-full rounded-xl font-semibold text-white shadow-lg"
+            className="bg-gradient-to-r from-gray-900 to-blue-900 py-3 w-full rounded-xl font-semibold text-white shadow-lg"
           >
             Send Message
           </motion.button>
