@@ -235,7 +235,7 @@ export default function Products() {
                         whileHover={{ scale: 1.1 }}
                         className="bg-black hover:bg-white hover:text-black  text-white px-4 py-2 rounded-lg shadow"
                       >
-                        Buy Now
+                        View Details
                       </motion.button>
                     </Link>
                   </div>

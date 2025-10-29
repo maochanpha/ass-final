@@ -114,19 +114,19 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "John D.",
+      name: "Kim Jung Un",
       text: "Amazing service! My Ferrari was delivered in 3 days!",
-      img: "/car/user1.png",
+      img: "/cus/ku.png",
     },
     {
-      name: "Sophia L.",
+      name: "President Donald J. Trump",
       text: "Smooth purchase and great support team!",
-      img: "/car/user2.png",
+      img: "/cus/dt.png",
     },
     {
-      name: "Alex P.",
+      name: "Vladimir Putin",
       text: "Got my dream Porsche—thanks Apex Auto!",
-      img: "/car/user3.png",
+      img: "/cus/pt.png",
     },
   ];
 
@@ -222,7 +222,7 @@ export default function Home() {
                   to="/products"
                   className="bg-blue-500 hover:bg-blue-600 px-5 py-2 rounded-lg font-semibold text-white transition"
                 >
-                  Buy Now
+                  View Details
                 </Link>
               </div>
             </motion.div>

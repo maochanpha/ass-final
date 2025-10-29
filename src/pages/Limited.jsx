@@ -121,7 +121,7 @@ export default function Limited() {
                 to={`/buy/${encodeURIComponent(car.name)}`}
                 className="inline-block bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded-full font-semibold transition mt-3"
               >
-                Buy Now
+                View Details
               </Link>
             </div>
           </motion.div>
