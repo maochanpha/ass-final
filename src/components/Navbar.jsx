@@ -35,7 +35,7 @@ export default function Navbar() {
             <li key={link.name} className="relative group">
               <Link
                 to={link.path}
-                className={`hover:text-white transition text-2xl ${
+                className={`hover:text-blue-500 transition text-2xl ${
                   location.pathname === link.path
                     ? "text-blue-500 font-bold"
                     : ""

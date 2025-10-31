@@ -3,8 +3,49 @@ import { motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router";
 
+// Flash Sale Timer Component
+function FlashSaleTimer({ discountEnd }) {
+  const [timeLeft, setTimeLeft] = useState("");
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = discountEnd.getTime() - now;
+
+      if (distance <= 0) {
+        setTimeLeft("Sale ended");
+        clearInterval(interval);
+        return;
+      }
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTimeLeft(
+        `${hours.toString().padStart(2, "0")}:${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [discountEnd]);
+
+  return (
+    <div className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+      ⚡ {timeLeft} ⚡
+    </div>
+  );
+}
+
 export default function Products() {
   const [search, setSearch] = useState("");
+  const [yearFilter, setYearFilter] = useState("");
+  const [fuelFilter, setFuelFilter] = useState("");
+  const [priceFilter, setPriceFilter] = useState(500000);
 
   const cars = [
     {
@@ -116,15 +157,20 @@ export default function Products() {
       discount: 0.1,
     },
   ];
+  // Filter cars by search, year, fuel, price
+  const filteredCars = cars.filter((car) => {
+    const matchesSearch = car.name.toLowerCase().includes(search.toLowerCase());
+    const matchesYear = yearFilter ? car.year === parseInt(yearFilter) : true;
+    const matchesFuel = fuelFilter ? car.fuel === fuelFilter : true;
+    const matchesPrice = car.price <= priceFilter;
+    return matchesSearch && matchesYear && matchesFuel && matchesPrice;
+  });
 
-  const filteredCars = cars.filter((car) =>
-    car.name.toLowerCase().includes(search.toLowerCase())
-  );
+  // Quick View Modal
+  const [modalCar, setModalCar] = useState(null);
 
   return (
     <div className="relative bg-gradient-to-b from-gray-900 to-black py-16 px-6 min-h-screen overflow-hidden">
-
-
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -134,30 +180,9 @@ export default function Products() {
         Cars for Sale
       </motion.h1>
 
-      <div className="flex justify-center mb-10 flex-wrap gap-4 relative z-10">
-        {[
-          { name: "All", path: "/products" },
-          { name: "Limited", path: "/products/limited" },
-          { name: "Premium", path: "/products/premium" },
-          { name: "Retro", path: "/products/retro" },
-        ].map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className={`px-6 py-2.5 rounded-full font-medium 
-                 bg-gray-500 text-gray-300 
-                 hover:bg-peach-500 hover:text-black
-                 shadow-sm hover:shadow-peach-500/30
-                 hover:scale-105 transition-all duration-300
-                 border border-transparent hover:border-peach-400`}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
-
-      <div className="flex justify-center mb-12 relative z-10">
-        <div className="relative w-80">
+      {/* Filters */}
+      <div className="flex flex-wrap justify-center gap-4 mb-12 relative z-10">
+        <div className="relative w-64">
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
           <input
             type="text"
@@ -167,8 +192,48 @@ export default function Products() {
             className="w-full pl-10 pr-4 py-2 rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-700 transition"
           />
         </div>
+
+        <select
+          value={yearFilter}
+          onChange={(e) => setYearFilter(e.target.value)}
+          className="px-4 py-2 rounded-full bg-gray-800 text-white border border-gray-700 focus:outline-none"
+        >
+          <option value="">All Years</option>
+          {[2020, 2021, 2022, 2023].map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
+
+        <select
+          value={fuelFilter}
+          onChange={(e) => setFuelFilter(e.target.value)}
+          className="px-4 py-2 rounded-full bg-gray-800 text-white border border-gray-700 focus:outline-none"
+        >
+          <option value="">All Fuel Types</option>
+          {["Petrol", "Electric"].map((fuel) => (
+            <option key={fuel} value={fuel}>
+              {fuel}
+            </option>
+          ))}
+        </select>
+
+        <div className="flex items-center gap-2">
+          <input
+            type="range"
+            min="0"
+            max="500000"
+            step="5000"
+            value={priceFilter}
+            onChange={(e) => setPriceFilter(parseInt(e.target.value))}
+            className="w-48"
+          />
+          <span className="text-white">${priceFilter.toLocaleString()}</span>
+        </div>
       </div>
 
+      {/* Car Grid */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-stretch justify-items-center max-w-[1500px] m-auto relative z-10"
         initial={{ opacity: 0 }}
@@ -183,14 +248,12 @@ export default function Products() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05, y: -10 }}
+                whileHover={{ scale: 1.05, y: -10, rotateX: 2, rotateY: 2 }}
                 transition={{ type: "spring", stiffness: 200 }}
                 className="relative w-full max-w-xs backdrop-blur-lg bg-white/10 border border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300"
               >
                 {hasDiscount && (
-                  <span className="absolute top-3 left-3 text-white bg-red-600 text-xs font-bold px-3 py-2 rounded-full">
-                    SALE {car.discount * 100}%
-                  </span>
+                  <FlashSaleTimer discountEnd={car.discountEnd} />
                 )}
 
                 <img
@@ -233,7 +296,7 @@ export default function Products() {
                     <Link to={`/buy/${encodeURIComponent(car.name)}`}>
                       <motion.button
                         whileHover={{ scale: 1.1 }}
-                        className="bg-black hover:bg-white hover:text-black  text-white px-4 py-2 rounded-lg shadow"
+                        className="bg-black hover:bg-white hover:text-black text-white px-4 py-2 rounded-lg shadow"
                       >
                         View Details
                       </motion.button>
@@ -249,6 +312,44 @@ export default function Products() {
           </p>
         )}
       </motion.div>
+
+      {/* Quick View Modal */}
+      {modalCar && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            className="bg-gray-900 p-8 rounded-2xl max-w-lg w-full relative"
+          >
+            <button
+              onClick={() => setModalCar(null)}
+              className="absolute top-4 right-4 text-white font-bold text-xl"
+            >
+              ✖
+            </button>
+            <img
+              src={modalCar.img}
+              alt={modalCar.name}
+              className="w-full h-64 object-cover rounded-xl mb-4"
+            />
+            <h2 className="text-2xl font-bold text-white mb-2">
+              {modalCar.name}
+            </h2>
+            <p className="text-gray-400 mb-2">
+              {modalCar.year} • {modalCar.fuel} • {modalCar.km}
+            </p>
+            <p className="text-lg font-bold text-white">
+              ${(modalCar.price * (1 - modalCar.discount)).toLocaleString()}
+              {modalCar.discount > 0 && (
+                <span className="text-gray-400 line-through ml-2">
+                  ${modalCar.price.toLocaleString()}
+                </span>
+              )}
+            </p>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
