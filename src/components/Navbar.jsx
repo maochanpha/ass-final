@@ -23,12 +23,19 @@ export default function Navbar() {
       className="fixed w-full top-0 z-50 bg-gradient-to-r from-gray-900 to-black text-white px-9 py-5 shadow-2xl backdrop-blur-sm"
     >
       <div className="flex justify-between items-center">
-        <motion.h1
-          whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
-          className="text-2xl font-bold tracking-wide"
-        >
-          Car<span className="text-blue-500">Dealership</span>
-        </motion.h1>
+        <Link to="/" className="flex items-center space-x-1 ">
+          <img
+            src="car.png"
+            alt="Car Logo"
+            className="w-14 h-14 object-contain"
+          />
+          <motion.h1
+            whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
+            className="text-2xl font-bold tracking-wide"
+          >
+            Car<span className="text-blue-500">Dealership</span>
+          </motion.h1>
+        </Link>
 
         <ul className="hidden md:flex space-x-10 text-gray-300">
           {links.map((link) => (
@@ -74,7 +81,6 @@ export default function Navbar() {
                       Retro Car
                     </Link>
                   </li>
-                  
                 </ul>
               )}
             </li>
@@ -94,7 +100,7 @@ export default function Navbar() {
           <>
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 50 }}
+              animate={{ opacity: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="fixed inset-0 bg-black z-30"
